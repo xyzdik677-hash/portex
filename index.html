@@ -16,7 +16,7 @@
 
         body {
             font-family: 'Share Tech Mono', monospace;
-            background: #0a0a1a;
+            background: #000;
             color: #fff;
             min-height: 100vh;
             overflow-x: hidden;
@@ -44,16 +44,7 @@
             height: auto;
             transform: translate(-50%, -50%);
             object-fit: cover;
-            filter: brightness(0.4) contrast(1.2);
-        }
-
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(0, 4, 40, 0.9), rgba(0, 78, 146, 0.7));
+            filter: brightness(0.6) contrast(1.2);
         }
 
         /* MAIN CONTAINER */
@@ -66,18 +57,18 @@
             z-index: 2;
         }
 
-        /* LAYER STYLES */
+        /* LAYER STYLES - TRANSPARAN */
         .layer {
-            background: rgba(10, 15, 30, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 200, 255, 0.2);
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 25px;
             padding: 30px;
             margin-bottom: 25px;
             box-shadow: 
-                0 15px 35px rgba(0, 100, 255, 0.2),
-                0 0 30px rgba(0, 200, 255, 0.1) inset;
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.05);
             animation: fadeInUp 0.6s ease-out;
             display: none;
             position: relative;
@@ -90,8 +81,8 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00f7ff, transparent);
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
         }
 
         .layer.active {
@@ -119,24 +110,20 @@
             width: 90px;
             height: 90px;
             border-radius: 50%;
-            border: 3px solid #00f7ff;
+            border: 2px solid rgba(255, 255, 255, 0.4);
             margin: 0 auto 20px;
             overflow: hidden;
             box-shadow: 
-                0 0 25px #00f7ff,
-                0 0 50px rgba(0, 247, 255, 0.3);
-            animation: logoGlow 3s infinite alternate;
-        }
-
-        @keyframes logoGlow {
-            0% { box-shadow: 0 0 25px #00f7ff, 0 0 50px rgba(0, 247, 255, 0.3); }
-            100% { box-shadow: 0 0 30px #0066ff, 0 0 60px rgba(0, 102, 255, 0.5); }
+                0 0 20px rgba(255, 255, 255, 0.2),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.3);
         }
 
         .logo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            opacity: 0.9;
         }
 
         .shop-title {
@@ -144,19 +131,19 @@
             font-size: 32px;
             font-weight: 900;
             letter-spacing: 3px;
-            background: linear-gradient(to right, #00f7ff, #0066ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: rgba(255, 255, 255, 0.95);
             margin-bottom: 10px;
-            text-shadow: 0 0 20px rgba(0, 247, 255, 0.5);
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.3),
+                0 0 20px rgba(255, 255, 255, 0.1);
         }
 
         .shop-subtitle {
-            color: #88d3ff;
+            color: rgba(255, 255, 255, 0.7);
             font-size: 13px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            border-top: 1px solid rgba(0, 247, 255, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
             padding-top: 10px;
             display: inline-block;
         }
@@ -171,32 +158,32 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 24px;
             margin-bottom: 20px;
-            color: #00f7ff;
-            text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
 
         .welcome-text p {
-            color: #aaddff;
+            color: rgba(255, 255, 255, 0.8);
             line-height: 1.6;
             font-size: 15px;
             margin-bottom: 15px;
         }
 
         .cyber-line {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00f7ff, transparent);
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             margin: 25px 0;
         }
 
-        /* BUTTONS */
+        /* BUTTONS - TRANSPARAN */
         .btn {
             display: block;
             width: 100%;
             padding: 18px;
             text-align: center;
-            background: linear-gradient(90deg, #0066ff, #00a3ff);
+            background: rgba(255, 255, 255, 0.1);
             color: white;
-            border: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 15px;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
@@ -205,11 +192,15 @@
             cursor: pointer;
             margin-top: 20px;
             transition: all 0.3s;
-            box-shadow: 0 5px 20px rgba(0, 102, 255, 0.4);
+            box-shadow: 
+                0 5px 15px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
             text-decoration: none;
             position: relative;
             overflow: hidden;
             z-index: 1;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .btn::before {
@@ -219,7 +210,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
             transition: 0.5s;
             z-index: -1;
         }
@@ -230,7 +221,11 @@
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 102, 255, 0.6);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
 
         .btn:active {
@@ -238,25 +233,22 @@
         }
 
         .btn-next {
-            background: linear-gradient(90deg, #00a3ff, #0066ff);
+            background: rgba(255, 255, 255, 0.12);
         }
 
         .btn-back {
-            background: rgba(0, 50, 100, 0.8);
-            border: 1px solid rgba(0, 200, 255, 0.3);
-            box-shadow: 0 5px 15px rgba(0, 50, 100, 0.3);
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .btn-telegram {
-            background: linear-gradient(90deg, #0088cc, #0066ff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            background: rgba(0, 136, 204, 0.2);
+            border: 1px solid rgba(0, 136, 204, 0.3);
         }
 
         .btn-request {
-            background: linear-gradient(90deg, #ff6600, #ff3300);
+            background: rgba(255, 102, 0, 0.2);
+            border: 1px solid rgba(255, 102, 0, 0.3);
         }
 
         /* LAYER 2 - PRODUCTS */
@@ -268,8 +260,8 @@
         }
 
         .product-card {
-            background: rgba(20, 30, 60, 0.7);
-            border: 1px solid rgba(0, 200, 255, 0.3);
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             padding: 20px;
             cursor: pointer;
@@ -277,6 +269,8 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
 
         .product-card::before {
@@ -286,7 +280,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(0, 200, 255, 0.1), transparent);
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
             transform: translateX(-100%);
             transition: 0.5s;
         }
@@ -297,17 +291,17 @@
 
         .product-card:hover {
             transform: translateY(-5px);
-            border-color: #00f7ff;
-            background: rgba(30, 40, 70, 0.9);
-            box-shadow: 0 10px 20px rgba(0, 247, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .product-card.selected {
-            border-color: #00f7ff;
-            background: rgba(40, 50, 80, 0.9);
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(0, 0, 0, 0.35);
             box-shadow: 
-                0 0 20px rgba(0, 247, 255, 0.3),
-                0 0 40px rgba(0, 247, 255, 0.1) inset;
+                0 0 20px rgba(255, 255, 255, 0.1),
+                inset 0 0 20px rgba(255, 255, 255, 0.05);
         }
 
         .product-img {
@@ -316,7 +310,7 @@
             border-radius: 10px;
             object-fit: cover;
             margin-bottom: 15px;
-            border: 1px solid rgba(0, 200, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         }
 
@@ -324,12 +318,12 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 14px;
             margin-bottom: 8px;
-            color: #00f7ff;
-            text-shadow: 0 0 5px rgba(0, 247, 255, 0.5);
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
         }
 
         .product-price {
-            color: #88d3ff;
+            color: rgba(255, 255, 255, 0.7);
             font-size: 13px;
             font-weight: bold;
         }
@@ -337,11 +331,12 @@
         .product-detail {
             margin-top: 25px;
             padding: 20px;
-            background: rgba(20, 30, 60, 0.6);
+            background: rgba(0, 0, 0, 0.25);
             border-radius: 15px;
-            border-left: 3px solid #00f7ff;
+            border-left: 2px solid rgba(255, 255, 255, 0.3);
             display: none;
-            border: 1px solid rgba(0, 200, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
         }
 
         .product-detail.active {
@@ -357,11 +352,11 @@
         .product-detail h4 {
             font-family: 'Orbitron', sans-serif;
             margin-bottom: 10px;
-            color: #00f7ff;
+            color: rgba(255, 255, 255, 0.95);
         }
 
         .product-detail p {
-            color: #aaddff;
+            color: rgba(255, 255, 255, 0.8);
             font-size: 13px;
             line-height: 1.5;
         }
@@ -377,39 +372,42 @@
         .payment-option {
             display: flex;
             align-items: center;
-            background: rgba(20, 30, 60, 0.7);
-            border: 1px solid rgba(0, 200, 255, 0.3);
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             padding: 18px;
             cursor: pointer;
             transition: all 0.3s;
             position: relative;
+            backdrop-filter: blur(5px);
         }
 
         .payment-option:hover {
-            border-color: #00f7ff;
-            background: rgba(30, 40, 70, 0.9);
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.3);
             transform: translateX(5px);
         }
 
         .payment-option.selected {
-            border-color: #00f7ff;
-            background: rgba(40, 50, 80, 0.9);
-            box-shadow: 0 0 20px rgba(0, 247, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(0, 0, 0, 0.35);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
         }
 
         .payment-icon {
             width: 50px;
             height: 50px;
             border-radius: 12px;
-            background: rgba(0, 100, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 20px;
             font-size: 24px;
-            color: #00f7ff;
-            box-shadow: 0 0 15px rgba(0, 247, 255, 0.3);
+            color: rgba(255, 255, 255, 0.8);
+            box-shadow: 
+                inset 0 0 10px rgba(255, 255, 255, 0.1),
+                0 0 15px rgba(255, 255, 255, 0.05);
         }
 
         .payment-info {
@@ -419,26 +417,27 @@
         .payment-name {
             font-family: 'Orbitron', sans-serif;
             font-size: 18px;
-            color: #00f7ff;
+            color: rgba(255, 255, 255, 0.95);
             margin-bottom: 5px;
-            text-shadow: 0 0 5px rgba(0, 247, 255, 0.5);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
         }
 
         .payment-desc {
-            color: #88d3ff;
+            color: rgba(255, 255, 255, 0.7);
             font-size: 13px;
         }
 
         /* REQUEST INFO BOX */
         .request-info-box {
-            background: rgba(20, 30, 60, 0.6);
+            background: rgba(0, 0, 0, 0.25);
             border-radius: 15px;
             padding: 25px;
             margin-top: 25px;
-            border: 1px solid rgba(0, 200, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             display: none;
             animation: fadeIn 0.5s;
             text-align: center;
+            backdrop-filter: blur(5px);
         }
 
         .request-info-box.active {
@@ -447,7 +446,7 @@
 
         .request-info-box h4 {
             font-family: 'Orbitron', sans-serif;
-            color: #00f7ff;
+            color: rgba(255, 255, 255, 0.95);
             margin-bottom: 15px;
             text-align: center;
             font-size: 18px;
@@ -456,27 +455,27 @@
         .request-detail {
             text-align: center;
             padding: 15px;
-            background: rgba(0, 20, 40, 0.5);
+            background: rgba(0, 0, 0, 0.3);
             border-radius: 10px;
             margin-bottom: 20px;
         }
 
         .request-icon {
             font-size: 50px;
-            color: #00f7ff;
+            color: rgba(255, 255, 255, 0.8);
             margin-bottom: 15px;
-            text-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
         }
 
         .request-text {
-            color: #aaddff;
+            color: rgba(255, 255, 255, 0.8);
             font-size: 14px;
             line-height: 1.6;
             margin-bottom: 10px;
         }
 
         .request-note {
-            color: #ff9900;
+            color: rgba(255, 153, 0, 0.9);
             font-size: 13px;
             margin-top: 15px;
             font-weight: bold;
@@ -484,12 +483,13 @@
 
         /* LAYER 4 - CONFIRMATION (Request Status) */
         .confirmation-box {
-            background: rgba(20, 30, 60, 0.6);
+            background: rgba(0, 0, 0, 0.25);
             border-radius: 15px;
             padding: 25px;
             margin-bottom: 30px;
-            border: 1px solid rgba(0, 200, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
+            backdrop-filter: blur(5px);
         }
 
         .status-header {
@@ -498,21 +498,21 @@
 
         .status-icon {
             font-size: 60px;
-            color: #ff9900;
+            color: rgba(255, 153, 0, 0.9);
             margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(255, 153, 0, 0.5);
+            text-shadow: 0 0 20px rgba(255, 153, 0, 0.3);
             animation: pulse 2s infinite;
         }
 
         .status-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 22px;
-            color: #ff9900;
+            color: rgba(255, 153, 0, 0.9);
             margin-bottom: 10px;
         }
 
         .status-subtitle {
-            color: #88d3ff;
+            color: rgba(255, 255, 255, 0.7);
             font-size: 14px;
             margin-bottom: 20px;
         }
@@ -520,7 +520,7 @@
         .order-details {
             margin-bottom: 25px;
             text-align: left;
-            background: rgba(0, 20, 40, 0.5);
+            background: rgba(0, 0, 0, 0.3);
             padding: 20px;
             border-radius: 10px;
         }
@@ -530,23 +530,23 @@
             justify-content: space-between;
             margin-bottom: 12px;
             padding-bottom: 10px;
-            border-bottom: 1px dashed rgba(0, 200, 255, 0.3);
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
         }
 
         .detail-label {
-            color: #88d3ff;
+            color: rgba(255, 255, 255, 0.7);
             font-size: 14px;
         }
 
         .detail-value {
-            color: #00f7ff;
+            color: rgba(255, 255, 255, 0.95);
             font-weight: bold;
             font-size: 14px;
             text-align: right;
         }
 
         .instructions {
-            background: rgba(0, 20, 40, 0.5);
+            background: rgba(0, 0, 0, 0.3);
             border-radius: 10px;
             padding: 20px;
             margin-top: 20px;
@@ -555,7 +555,7 @@
 
         .instructions h4 {
             font-family: 'Orbitron', sans-serif;
-            color: #00f7ff;
+            color: rgba(255, 255, 255, 0.95);
             margin-bottom: 15px;
             font-size: 16px;
             text-align: center;
@@ -563,7 +563,7 @@
 
         .instructions ul {
             padding-left: 20px;
-            color: #aaddff;
+            color: rgba(255, 255, 255, 0.8);
             font-size: 14px;
             line-height: 1.6;
         }
@@ -585,7 +585,7 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: rgba(0, 100, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
             cursor: pointer;
             transition: all 0.3s;
             position: relative;
@@ -599,7 +599,7 @@
             right: -4px;
             bottom: -4px;
             border-radius: 50%;
-            border: 1px solid rgba(0, 200, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             opacity: 0;
             transition: 0.3s;
         }
@@ -609,15 +609,15 @@
         }
 
         .dot.active {
-            background: #00f7ff;
-            box-shadow: 0 0 10px #00f7ff;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
             transform: scale(1.3);
         }
 
         /* PROGRESS BAR */
         .layer-progress {
-            height: 4px;
-            background: rgba(0, 100, 255, 0.2);
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 2px;
             margin-bottom: 30px;
             overflow: hidden;
@@ -626,7 +626,7 @@
 
         .layer-progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #00a3ff, #00f7ff);
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.8));
             width: 25%;
             transition: width 0.5s ease;
             position: relative;
@@ -639,8 +639,8 @@
             right: 0;
             width: 10px;
             height: 100%;
-            background: #00f7ff;
-            box-shadow: 0 0 10px #00f7ff;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
         /* ANIMATIONS */
@@ -691,7 +691,6 @@
         <video autoplay muted loop playsinline class="bg-video">
             <source src="https://files.catbox.moe/fgtltx.mp4" type="video/mp4">
         </video>
-        <div class="video-overlay"></div>
     </div>
 
     <!-- MAIN CONTAINER -->
@@ -716,7 +715,7 @@
                 
                 <div class="cyber-line"></div>
                 
-                <p style="color: #00f7ff; font-size: 14px;">
+                <p style="color: rgba(255, 255, 255, 0.9); font-size: 14px;">
                     <i class="fas fa-shield-alt"></i> Sistem Keamanan: AES-256 Encryption<br>
                     <i class="fas fa-bolt"></i> Pengiriman: Instan (1-5 Menit)<br>
                     <i class="fas fa-headset"></i> Support: 24/7 Active
@@ -771,7 +770,7 @@
                         <div class="payment-name">DANA</div>
                         <div class="payment-desc">Transfer via DANA App</div>
                     </div>
-                    <i class="fas fa-check" style="color: #00f7ff; display: none;"></i>
+                    <i class="fas fa-check" style="color: rgba(255, 255, 255, 0.8); display: none;"></i>
                 </div>
                 
                 <div class="payment-option" data-method="gopay">
@@ -782,7 +781,7 @@
                         <div class="payment-name">GOPAY</div>
                         <div class="payment-desc">Bayar via Gojek App</div>
                     </div>
-                    <i class="fas fa-check" style="color: #00f7ff; display: none;"></i>
+                    <i class="fas fa-check" style="color: rgba(255, 255, 255, 0.8); display: none;"></i>
                 </div>
             </div>
             
@@ -850,7 +849,7 @@
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">Status:</span>
-                        <span class="detail-value" style="color: #ff9900;">MENUNGGU ADMIN</span>
+                        <span class="detail-value" style="color: rgba(255, 153, 0, 0.9);">MENUNGGU ADMIN</span>
                     </div>
                 </div>
                 
@@ -883,7 +882,7 @@
 
     <!-- AUDIO ELEMENT -->
     <audio id="bgMusic" loop>
-        <source src="https://files.catbox.moe/9dt6m7.mp3" type="audio/mpeg">
+        <source src="https://files.catbox.moe/bsq26g.mp3" type="audio/mpeg">
     </audio>
 
     <script>
@@ -1056,7 +1055,7 @@
             detailDiv.innerHTML = `
                 <h4>${product.name}</h4>
                 <p>${product.description}</p>
-                <p style="margin-top: 10px; color: #00f7ff; font-size: 14px;">Harga: ${product.price}</p>
+                <p style="margin-top: 10px; color: rgba(255, 255, 255, 0.9); font-size: 14px;">Harga: ${product.price}</p>
             `;
             detailDiv.classList.add('active');
             
@@ -1110,7 +1109,7 @@
                 updateNavDots();
                 
                 // Show success message
-                alert("✅ Request berhasil dikirim! Admin akan menghubungi Anda via Telegram.");
+                alert("✅ Request berhasil dikirim! Silahkan hubungi Admin untuk melanjutkan pembayaran.");
             }, 1500);
         }
 
@@ -1181,4 +1180,4 @@
         }
     </script>
 </body>
-    </html>
+</html>
